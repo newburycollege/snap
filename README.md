@@ -64,3 +64,8 @@ const overlays = [
 ```
 
 You can add more overlays by adding more entries and matching PNG files.
+
+
+## Small iPhone / Safari layout
+
+The capture button is fixed above the currently visible viewport and respects both the iPhone safe area and Safari browser chrome. On shorter screens the live camera preview is reduced slightly so the frame selector remains accessible.

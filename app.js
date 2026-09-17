@@ -45,6 +45,26 @@ let outputBlob = null;
 let outputObjectUrl = null;
 let swipeStartX = null;
 
+function updateViewportBottomGap() {
+  const viewport = window.visualViewport;
+
+  if (!viewport) {
+    document.documentElement.style.setProperty("--viewport-bottom-gap", "0px");
+    return;
+  }
+
+  // Some iPhone Safari versions draw browser chrome over the layout viewport.
+  // Raise the fixed capture control by the portion that is not currently visible.
+  const layoutHeight = document.documentElement.clientHeight;
+  const visibleBottom = viewport.offsetTop + viewport.height;
+  const bottomGap = Math.max(0, layoutHeight - visibleBottom);
+
+  document.documentElement.style.setProperty(
+    "--viewport-bottom-gap",
+    `${Math.round(bottomGap)}px`
+  );
+}
+
 function showCameraMessage(message) {
   cameraMessageText.textContent = message;
   cameraMessage.hidden = false;
@@ -326,6 +346,14 @@ function finishSwipe(event) {
   element.addEventListener("touchstart", beginSwipe, { passive: true });
   element.addEventListener("touchend", finishSwipe, { passive: true });
 });
+
+updateViewportBottomGap();
+window.addEventListener("resize", updateViewportBottomGap);
+window.addEventListener("orientationchange", updateViewportBottomGap);
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", updateViewportBottomGap);
+  window.visualViewport.addEventListener("scroll", updateViewportBottomGap);
+}
 
 window.addEventListener("pagehide", stopCamera);
 window.addEventListener("beforeunload", () => {
