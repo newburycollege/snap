@@ -2,9 +2,16 @@ const OUTPUT_WIDTH = 1080;
 const OUTPUT_HEIGHT = 1350;
 
 const overlays = [
-  { name: "Frame 1", src: "overlays/one.png" },
-  { name: "Frame 2", src: "overlays/two.png" },
-  { name: "Frame 3", src: "overlays/three.png" },
+  { name: "Art and Design", src: "overlays/art.png" },
+  { name: "Business and Marketing", src: "overlays/business.png" },
+  { name: "Catering", src: "overlays/catering.png" },
+  { name: "Construction", src: "overlays/construction.png" },
+  { name: "Engineering and Motor Vehicle", src: "overlays/engineering.png" },
+  { name: "Beauty and Hairdressing", src: "overlays/hair.png" },
+  { name: "Health Care and Early Years", src: "overlays/health.png" },
+  { name: "Creative Media", src: "overlays/media.png" },
+  { name: "Sport and Fitness", src: "overlays/sport.png" },
+  { name: "Public Services", src: "overlays/ups.png" },
 ];
 
 const video = document.querySelector("#camera");
