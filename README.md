@@ -14,3 +14,19 @@ A simple mobile-first camera app for GitHub Pages.
 - Embeds the selected overlay into the final JPEG.
 - Provides **Share** using the Web Share API where supported.
 - Provides **Save photo** as a normal browser download.
+
+## Setup
+
+The app is designed to run directly from GitHub Pages.
+
+The logo should be stored at:
+
+`/images/logo.png`
+
+Overlay images should be stored in:
+
+`/overlays/`
+
+Overlays should ideally be transparent PNG files at **1080 × 1350 px**.
+
+Camera access requires HTTPS, which GitHub Pages provides automatically.
