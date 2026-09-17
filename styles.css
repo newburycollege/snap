@@ -133,6 +133,10 @@ h2 {
   user-select: none;
 }
 
+.camera-message[hidden] {
+  display: none !important;
+}
+
 .camera-message {
   position: absolute;
   inset: 0;

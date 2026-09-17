@@ -41,10 +41,12 @@ let swipeStartX = null;
 function showCameraMessage(message) {
   cameraMessageText.textContent = message;
   cameraMessage.hidden = false;
+  cameraMessage.setAttribute("aria-hidden", "false");
 }
 
 function hideCameraMessage() {
   cameraMessage.hidden = true;
+  cameraMessage.setAttribute("aria-hidden", "true");
 }
 
 function stopCamera() {
@@ -74,8 +76,20 @@ async function startCamera() {
     });
 
     video.srcObject = currentStream;
+
+    // Wait until the browser has attached the stream and knows the video size.
+    if (video.readyState < 1) {
+      await new Promise((resolve) => {
+        video.addEventListener("loadedmetadata", resolve, { once: true });
+      });
+    }
+
     await video.play();
     video.classList.toggle("environment-camera", facingMode === "environment");
+
+    // Some mobile browsers can briefly leave the previous status layer visible
+    // while permission is being granted, so explicitly clear it after playback starts.
+    hideCameraMessage();
     captureButton.disabled = false;
   } catch (error) {
     console.error(error);
