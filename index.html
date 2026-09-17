@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Photo Frame</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-bar">
+      <div>
+        <p class="eyebrow">PHOTO FRAME</p>
+        <h1>Take your photo</h1>
+      </div>
+      <button id="switchCameraButton" class="icon-button" type="button" aria-label="Switch camera" title="Switch camera">
+        <span aria-hidden="true">↻</span>
+      </button>
+    </header>
+
+    <section class="camera-section" aria-label="Camera preview">
+      <div id="cameraStage" class="camera-stage">
+        <video id="camera" autoplay muted playsinline></video>
+        <img id="liveOverlay" class="live-overlay" src="overlays/one.png" alt="Selected photo overlay" draggable="false" />
+
+        <div id="cameraMessage" class="camera-message" hidden>
+          <p id="cameraMessageText">Camera unavailable.</p>
+          <button id="retryCameraButton" class="secondary-button" type="button">Try again</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlay-controls" aria-label="Choose a frame">
+      <div class="overlay-copy">
+        <span>Choose a frame</span>
+        <span id="overlayPosition" class="overlay-position">1 / 3</span>
+      </div>
+
+      <div id="overlayPicker" class="overlay-picker" tabindex="0" aria-label="Swipe or use arrows to select an overlay">
+        <button id="previousOverlayButton" class="small-icon-button" type="button" aria-label="Previous frame">‹</button>
+        <div class="overlay-name-wrap">
+          <strong id="overlayName">Frame 1</strong>
+          <small>Swipe left or right</small>
+        </div>
+        <button id="nextOverlayButton" class="small-icon-button" type="button" aria-label="Next frame">›</button>
+      </div>
+    </section>
+
+    <section class="action-bar" aria-label="Photo controls">
+      <button id="captureButton" class="capture-button" type="button" aria-label="Take photo">
+        <span class="capture-ring" aria-hidden="true"></span>
+        <span class="capture-label">Take photo</span>
+      </button>
+    </section>
+  </main>
+
+  <dialog id="resultDialog" class="result-dialog">
+    <div class="result-card">
+      <div class="result-header">
+        <div>
+          <p class="eyebrow">YOUR PHOTO</p>
+          <h2>Ready to share</h2>
+        </div>
+        <button id="closeResultButton" class="icon-button dark" type="button" aria-label="Close preview">×</button>
+      </div>
+
+      <img id="resultImage" class="result-image" alt="Your finished photo" />
+
+      <div class="result-actions">
+        <button id="shareButton" class="primary-button" type="button">Share</button>
+        <button id="downloadButton" class="secondary-button" type="button">Save photo</button>
+        <button id="retakeButton" class="text-button" type="button">Retake</button>
+      </div>
+      <p id="shareNote" class="share-note" hidden></p>
+    </div>
+  </dialog>
+
+  <canvas id="outputCanvas" width="1080" height="1350" hidden></canvas>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
