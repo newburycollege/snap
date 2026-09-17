@@ -26,7 +26,6 @@ const previousOverlayButton = document.querySelector("#previousOverlayButton");
 const nextOverlayButton = document.querySelector("#nextOverlayButton");
 const overlayPicker = document.querySelector("#overlayPicker");
 const overlayName = document.querySelector("#overlayName");
-const overlayPosition = document.querySelector("#overlayPosition");
 const canvas = document.querySelector("#outputCanvas");
 const ctx = canvas.getContext("2d", { alpha: false });
 
@@ -133,7 +132,6 @@ function updateOverlay(index) {
   const overlay = overlays[currentOverlayIndex];
   liveOverlay.src = overlay.src;
   overlayName.textContent = overlay.name;
-  overlayPosition.textContent = `${currentOverlayIndex + 1} / ${overlays.length}`;
 }
 
 function stepOverlay(direction) {
@@ -281,7 +279,7 @@ async function sharePhoto() {
       await navigator.share({
         files: [file],
         title: "My photo",
-        text: "Made with the photo frame app",
+        text: "Preparing for the future! @newburycollege #CareersNotCourses",
       });
       return;
     } catch (error) {

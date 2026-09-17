@@ -69,3 +69,18 @@ You can add more overlays by adding more entries and matching PNG files.
 ## Small iPhone / Safari layout
 
 The capture button is fixed above the currently visible viewport and respects both the iPhone safe area and Safari browser chrome. On shorter screens the live camera preview is reduced slightly so the frame selector remains accessible.
+
+
+## Logo
+
+Add the app header logo at:
+
+`images/logo.png`
+
+The header now uses this image instead of the previous text title. A transparent PNG is recommended.
+
+## Share message
+
+When supported by the device's native Web Share sheet, the app shares the finished image with the text:
+
+`Preparing for the future! @newburycollege #CareersNotCourses`

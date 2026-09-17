@@ -7,17 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Photo Frame</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="app-shell">
     <header class="top-bar">
-      <div>
-        <p class="eyebrow">PHOTO FRAME</p>
-        <h1>Take your photo</h1>
-      </div>
+      <img class="app-logo" src="images/logo.png" alt="Newbury College" />
       <button id="switchCameraButton" class="icon-button" type="button" aria-label="Switch camera" title="Switch camera">
-        <span aria-hidden="true">↻</span>
+        <i class="fa-solid fa-camera-rotate" aria-hidden="true"></i>
       </button>
     </header>
 
@@ -34,11 +32,6 @@
     </section>
 
     <section class="overlay-controls" aria-label="Choose a frame">
-      <div class="overlay-copy">
-        <span>Choose a frame</span>
-        <span id="overlayPosition" class="overlay-position">1 / 10</span>
-      </div>
-
       <div id="overlayPicker" class="overlay-picker" tabindex="0" aria-label="Swipe or use arrows to select an overlay">
         <button id="previousOverlayButton" class="small-icon-button" type="button" aria-label="Previous frame">‹</button>
         <div class="overlay-name-wrap">

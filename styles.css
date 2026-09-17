@@ -56,6 +56,14 @@ button:focus-visible,
   gap: 16px;
 }
 
+.app-logo {
+  display: block;
+  width: min(72%, 280px);
+  max-height: 58px;
+  object-fit: contain;
+  object-position: left center;
+}
+
 .eyebrow {
   margin: 0 0 4px;
   font-size: 0.72rem;
@@ -152,22 +160,9 @@ h2 {
 
 .overlay-controls {
   display: grid;
-  gap: 8px;
+  margin-top: -8px;
 }
 
-.overlay-copy {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4px;
-  font-size: 0.84rem;
-  font-weight: 750;
-}
-
-.overlay-position {
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
 
 .overlay-picker {
   min-height: 66px;
@@ -381,12 +376,9 @@ h2 {
     width: min(100%, 280px);
   }
 
-  .top-bar h1 {
-    font-size: 1.35rem;
-  }
-
-  .eyebrow {
-    margin-bottom: 2px;
+  .app-logo {
+    width: min(70%, 240px);
+    max-height: 48px;
   }
 
   .icon-button {
@@ -406,6 +398,11 @@ h2 {
 }
 
 @media (max-height: 680px) {
+  .app-logo {
+    width: min(68%, 220px);
+    max-height: 42px;
+  }
+
   .camera-stage {
     width: min(100%, 248px);
   }
